@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>JOSH: LIGHTS, CAMERA, JUMP!</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+  html, body { margin: 0; height: 100%; background: #000; overflow: hidden; }
+  body { display: flex; align-items: center; justify-content: center; }
+  canvas { image-rendering: pixelated; image-rendering: crisp-edges; display: block; outline: none; }
+  #nomod { display: none; color: #eee; font: 14px/1.5 monospace; max-width: 560px; padding: 20px; text-align: center; }
+</style>
+</head>
+<body>
+<canvas id="game" width="320" height="180" tabindex="0"></canvas>
+<div id="nomod">JOSH: LIGHTS, CAMERA, JUMP! couldn't load its game modules.<br><br>
+Browsers block ES modules on file:// pages. From this folder run:<br><b>python3 -m http.server 8000</b><br>then open <b>http://localhost:8000</b></div>
+<script type="module" src="js/main.js"></script>
+<script>
+  // If the module never started (file:// block), show how to run it.
+  setTimeout(function () { if (!window.__joshBooted) { document.getElementById('game').style.display = 'none'; document.getElementById('nomod').style.display = 'block'; } }, 2500);
+</script>
+</body>
+</html>
