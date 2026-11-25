@@ -191,7 +191,7 @@ export const BOSS_TALK = {
 // Cutscenes. cast: actor -> x. Steps: {s,t} say, {n} narrate, {enter,x}, {exit}, {holo,x}, {fx}, {title,sub}, {movie}
 export const CUTSCENES = {
   opening: { bg: 0, music: 'cutscene', cast: { josh: 120 }, steps: [
-    { n: 'STARLIGHT STUDIOS. HOME OF THE YOUNG DIRECTORS PREMIERE.' },
+    { n: 'RELIVERSE STUDIOS. HOME OF THE YOUNG DIRECTORS PREMIERE.' },
     { n: 'AND THIS IS JOSH. HE HAS ONE DREAM: TO DIRECT A MOVIE THE WHOLE WORLD WILL SEE.' },
     { s: 'josh', t: 'PICTURE IT... MY NAME, IN LIGHTS! WELL, IN A FONT. A VERY DRAMATIC FONT.' },
     { enter: 'ayden', x: 175 },
@@ -282,7 +282,7 @@ export const CUTSCENES = {
     { s: 'josh', t: 'FINAL SCENE. LIGHTS... CAMERA... JUMP!' },
   ] },
   ending: { bg: 'theatre', music: 'cutscene', cast: {}, audience: true, steps: [
-    { n: 'OPENING NIGHT. STARLIGHT STUDIOS. EVERY SEAT IS FULL.' },
+    { n: 'OPENING NIGHT. RELIVERSE STUDIOS. EVERY SEAT IS FULL.' },
     { s: 'marcus', t: 'FRONT ROW, BABY! I MADE THE POPCORN BUCKETS MYSELF. OUT OF PROPS.' },
     { s: 'craig', t: "NOBODY CRY. ...I'M NOT CRYING, YOU'RE CRYING." },
     { s: 'finn', t: "MY NAME IS ON THE POSTER. NEXT TO JOSH'S. I'M FRAMING IT." },

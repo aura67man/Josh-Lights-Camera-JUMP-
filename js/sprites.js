@@ -1,6 +1,7 @@
 // sprites.js - all pixel art is generated in code. Every character/enemy/boss/pickup sprite gets an
 // automatic clean 1px black outline. Also builds per-world tilesets and parallax backgrounds.
 import { makeCanvas, makeRng, W, H } from './engine.js';
+import { drawText } from './font.js';
 
 // ---------- pixel grid + painter ----------
 export class G {
@@ -436,7 +437,7 @@ function buildBG(i) {
     [[60, -0.35], [260, 0.35], [160, 0.1]].forEach(([bx, a]) => { sx.beginPath(); sx.moveTo(bx - 4, 180); sx.lineTo(bx + 4, 180); sx.lineTo(bx + 4 + Math.sin(a) * 300 + 20, -20); sx.lineTo(bx - 4 + Math.sin(a) * 300 - 20, -20); sx.fill(); });
     sx.globalAlpha = 1;
     layer(0.1, (x, w) => { let X = 0; while (X < w) { const bw = rng.i(16, 34), bh = rng.i(50, 120); R(x, X, 150 - bh, bw, bh, '#141834'); for (let k = 0; k < 10; k++) R(x, X + rng.i(2, bw - 3), 150 - bh + rng.i(3, bh - 4), 1, 2, '#f8e8a0'); X += bw + 2; } });
-    layer(0.35, (x) => { R(x, 120, 20, 70, 130, '#2a2850'); R(x, 130, 6, 50, 16, '#2a2850'); R(x, 150, -10, 10, 18, '#2a2850'); R(x, 124, 26, 62, 2, '#e8c040'); for (let wy = 34; wy < 140; wy += 10) for (let wx = 128; wx < 182; wx += 9) R(x, wx, wy, 5, 5, (wx + wy) % 3 ? '#f8e8a0' : '#3a3870'); R(x, 126, 8, 58, 9, '#e8c040'); }, 320);
+    layer(0.35, (x) => { R(x, 120, 20, 70, 130, '#2a2850'); R(x, 130, 6, 50, 16, '#2a2850'); R(x, 150, -10, 10, 18, '#2a2850'); R(x, 124, 26, 62, 2, '#e8c040'); for (let wy = 34; wy < 140; wy += 10) for (let wx = 128; wx < 182; wx += 9) R(x, wx, wy, 5, 5, (wx + wy) % 3 ? '#f8e8a0' : '#3a3870'); R(x, 126, 8, 58, 9, '#e8c040'); drawText(x, 'RELIVERSE', 155, 10, { col: '#3a1018', align: 'center', shadow: false }); }, 320);
     layer(0.75, (x, w) => { for (let X = 0; X < w; X += 40) { R(x, X + 6, 120, 3, 22, '#e8c040'); R(x, X + 5, 118, 5, 3, '#ffe880'); x.strokeStyle = '#a01828'; x.lineWidth = 2; x.beginPath(); x.moveTo(X + 8, 124); x.quadraticCurveTo(X + 28, 134, X + 48, 124); x.stroke(); } for (let X = 0; X < w; X += 9) { R(x, X, 106 + (X % 3) * 2, 7, 20, '#0e1028'); R(x, X + 2, 101 + (X % 3) * 2, 4, 5, '#0e1028'); } });
   }
   return { sky, layers };
